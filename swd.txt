@@ -1,0 +1,14 @@
+echo "deb http://packages.ez-wheel.com:8081/apt-repo focal main" | sudo tee -a
+/etc/apt/sources.list
+
+wget -qO - http://packages.ez-wheel.com:8081/archive.key | sudo apt-key add -
+
+sudo apt updatesudo && apt install swd-services
+
+echo 'export $(cat /tmp/SYSTEMCTL_dbus.id)' >> ~/.bashrc
+
+echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ezw/usr/lib' >> ~/.bashrc
+
+sudo apt update && sudo apt install swd-system-config-2wheels
+
+sudo apt install dbus-x11
